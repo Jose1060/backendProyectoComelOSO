@@ -4,7 +4,7 @@ const connectDB = async () => {
 	try {
 		console.log("Connecting to MongoDB...");
 		await connect(
-			"mongodb+srv://root:Zo8A6nKeGfy9ZEDO@cluster0.ekjpk.mongodb.net/?retryWrites=true&w=majority"
+			"mongodb://mongo:vrWFnBL8zQmdsCBhHZwy@containers-us-west-71.railway.app:5584"
 		);
 		console.log("MongoDB Connected");
 	} catch (error) {
