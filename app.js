@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const { typeDefs } = require("./typeDefs");
@@ -23,8 +25,8 @@ async function start() {
 	apolloServer.applyMiddleware({ app });
 
 	app.use("*", (req, res) => res.status(404).send("404 Not found"));
-	app.listen(3000, () => {
-		console.log("Server on port", 3000);
+	app.listen(process.env.PORT, () => {
+		console.log("Server on port", process.env.PORT);
 	});
 }
 
