@@ -7,6 +7,13 @@ const restauranteSchema = new Schema({
 	email: { type: String, required: true },
 	imagen: { type: String, required: true },
 	descripcion: { type: String, required: true },
+	comentarios: [
+		{
+			idUsuario: { type: String, required: true },
+			contenido: { type: String, required: true },
+			idRestaurante: { type: String, required: true },
+		},
+	],
 });
 
 module.exports = model("Restaurante", restauranteSchema);

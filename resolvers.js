@@ -12,8 +12,19 @@ const resolvers = {
 			const rest = await Restaurante.findById(args.id);
 			return rest;
 		},
+		getComentarios: async (_, args) => {
+			return Restaurante.findById(args.idRest);
+		},
 	},
 	Mutation: {
+		createComentario: async (_, args) => {
+			const { idRest, Comentario } = args;
+			const rest = await Restaurante.findById(idRest);
+			rest.comentarios.push(Comentario);
+			await rest.save();
+			return rest;
+		},
+
 		createRestaurante: async (_, args) => {
 			const { nombre, direccion, telefono, email, imagen, descripcion } =
 				args.Restaurante;
